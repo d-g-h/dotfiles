@@ -54,15 +54,10 @@ function! VimrcLoadPlugins()
   nnoremap <silent> <c-p> :FZF<cr>
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
   " }}}
-  " Neomake {{{
-  Plug 'benekastah/neomake'
-  let g:neomake_verbose = 0
-  augroup Neomake
-    au!
-    au! BufWritePost * Neomake
-  augroup END
-  let g:neomake_css_enabled_makers = ['stylelint']
-  let g:neomake_scss_enabled_makers = ['stylelint']
+  " Ale {{{
+  Plug 'w0rp/ale'
+  " Enable completion where available.
+  let g:ale_completion_enabled = 1
   " }}}
   " UltiSnips {{{
   if g:has_python
@@ -288,6 +283,8 @@ function! VimrcLoadFontsColors()
   if !exists('g:airline_symbols')
     let g:airline_symbols = {}
   endif
+  " Set this. Airline will handle the rest.
+  let g:airline#extensions#ale#enabled = 1
   let g:airline_left_sep='❯'
   let g:airline_right_sep=''
   let g:airline_symbols.branch='⎇ '

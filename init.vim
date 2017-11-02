@@ -24,7 +24,7 @@ function! VimrcLoadPlugins()
   Plug 'vim-scripts/DrawIt'
   Plug 'altercation/vim-colors-solarized'
   Plug 'danro/rename.vim'
-  Plug 'pangloss/vim-javascript', { 'branch': 'develop' }
+  Plug 'pangloss/vim-javascript'
   Plug 'mxw/vim-jsx'
   Plug 'digitaltoad/vim-jade'
   Plug 'nicklasos/vim-jsx-riot'

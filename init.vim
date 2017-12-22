@@ -16,7 +16,7 @@ function! VimrcLoadPlugins()
   Plug 'tpope/vim-unimpaired'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
-  Plug 'tpope/vim-vinegar'
+  Plug 'justinmk/vim-dirvish'
   Plug 'scrooloose/nerdcommenter'
   Plug 'tpope/vim-eunuch'
   Plug 'bling/vim-airline'
@@ -42,8 +42,11 @@ function! VimrcLoadPlugins()
   Plug 'othree/html5.vim'
   Plug 'hail2u/vim-css3-syntax'
   Plug 'digitaltoad/vim-pug'
+  Plug 'rhysd/vim-grammarous'
   Plug 'dNitro/vim-pug-complete', { 'for': ['jade', 'pug'] }
+  Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
   " }}}
+  let g:grammarous#default_comments_only_filetypes = { '*' : 1, 'help' : 0, 'markdown' : 0 }
   " FZF {{{
   " let fzf_command = '((git ls-files && git ls-files --exclude-standard --cached --others 2> /dev/null)'  " git
   " let fzf_command .= ' || (hg manifest --all 2> /dev/null)'  " mercurial
@@ -254,6 +257,10 @@ function! VimrcLoadFiletypeSettings()
     au FileType vim
           \   setl foldmethod=manual
           \ | setl foldenable
+    " }}}
+    " Vim {{{
+    au FileType dirvish
+          \   setl nospell
     " }}}
     " C/C++ {{{
     au FileType c,cpp

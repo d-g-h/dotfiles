@@ -14,6 +14,7 @@ function! VimrcLoadPlugins()
   call plug#begin()
   " Misc {{{
   Plug 'tpope/vim-unimpaired'
+  Plug 'tmux-plugins/vim-tmux'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
   Plug 'justinmk/vim-dirvish'
@@ -45,6 +46,8 @@ function! VimrcLoadPlugins()
   Plug 'rhysd/vim-grammarous'
   Plug 'dNitro/vim-pug-complete', { 'for': ['jade', 'pug'] }
   Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+  Plug 'airblade/vim-gitgutter'
+  Plug 'chr4/nginx.vim'
   " }}}
   let g:grammarous#default_comments_only_filetypes = { '*' : 1, 'help' : 0, 'markdown' : 0 }
   " FZF {{{
@@ -280,6 +283,9 @@ function! VimrcLoadFiletypeSettings()
           \ | setl shiftwidth=4
           \ | setl textwidth=79
     command! DocTest !python3 -m doctest %
+    " }}}
+    " Manifest {{{
+    au BufNewFile,BufRead *.manifest set filetype=JSON
     " }}}
   augroup END
 endfunction

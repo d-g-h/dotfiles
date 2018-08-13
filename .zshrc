@@ -213,6 +213,3 @@ elif type compctl &>/dev/null; then
   compctl -K _npm_completion npm
 fi
 ###-end-npm-completion-###
-
-# added by travis gem
-[ -f /Users/dhall1/.travis/travis.sh ] && source /Users/dhall1/.travis/travis.sh

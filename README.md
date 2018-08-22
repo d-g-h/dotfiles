@@ -1,2 +1,3 @@
-### d-g-h's dotfiles
+# d-g-h's . files
+
 .

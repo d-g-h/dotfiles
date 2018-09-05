@@ -1,0 +1,9 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+name = dave
+email = dave.com@com
+[pull]
+	rebase = true
+[color]
+	ui = true

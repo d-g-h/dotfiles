@@ -2,11 +2,11 @@
 {
     "tslint.rulesDirectory": "./node_modules/codelyzer",
     "typescript.tsdk": "node_modules/typescript/lib",
-    "editor.renderWhitespace": "boundary",
-    "editor.renderControlCharacters": true,
+    "editor.renderWhitespace": "none",
+    "editor.renderControlCharacters": false,
     "editor.fontSize": 10,
     "editor.rulers": [120],
-    "window.zoomLevel": -1,
+    "window.zoomLevel": 2,
     "editor.cursorStyle": "line-thin",
     "workbench.colorTheme": "Solarized Dark",
     "terminal.integrated.cursorStyle": "line",
@@ -194,7 +194,14 @@
         }
     },
     "cSpell.userWords": [
-        "infor",
         "ibm"
-    ]
+    ],
+    "breadcrumbs.enabled": false,
+    "editor.minimap.enabled": true,
+    "editor.fontFamily": "Monaco, monospace",
+    "editor.renderIndentGuides": false,
+    "editor.fontLigatures": true,
+    "editor.fontWeight": "200",
+    "markdown.preview.fontSize": 12,
+    "editor.letterSpacing": -0.85
 }

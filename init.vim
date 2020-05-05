@@ -31,7 +31,6 @@ function! VimrcLoadPlugins()
   Plug 'nicklasos/vim-jsx-riot'
   Plug 'godlygeek/tabular'
   Plug 'editorconfig/editorconfig-vim'
-  Plug 'Valloric/MatchTagAlways'
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
@@ -45,11 +44,14 @@ function! VimrcLoadPlugins()
   Plug 'digitaltoad/vim-pug'
   Plug 'rhysd/vim-grammarous'
   Plug 'dNitro/vim-pug-complete', { 'for': ['jade', 'pug'] }
-  Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+  Plug 'prettier/vim-prettier', { 'do': 'npm install' }
   Plug 'airblade/vim-gitgutter'
-  Plug 'chr4/nginx.vim'
+  Plug 'posva/vim-vue'
+  Plug 'elubow/cql-vim'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
   " }}}
   let g:grammarous#default_comments_only_filetypes = { '*' : 1, 'help' : 0, 'markdown' : 0 }
+  autocmd OptionSet guicursor noautocmd set guicursor=
   " FZF {{{
   " let fzf_command = '((git ls-files && git ls-files --exclude-standard --cached --others 2> /dev/null)'  " git
   " let fzf_command .= ' || (hg manifest --all 2> /dev/null)'  " mercurial
@@ -61,7 +63,7 @@ function! VimrcLoadPlugins()
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
   " }}}
   " Ale {{{
-  Plug 'w0rp/ale'
+  Plug 'dense-analysis/ale'
   " Enable completion where available.
   let g:ale_completion_enabled = 1
   " }}}
@@ -78,7 +80,7 @@ function! VimrcLoadPlugins()
   nnoremap <leader>u :UndotreeToggle<cr>
   " }}}
   " deoplete {{{
-    let g:deoplete#enable_at_startup = 1
+    let g:deoplete#enable_at_startup = 0
     let g:deoplete#disable_auto_complete = 0
   " }}}
   " Fugitive {{{
@@ -162,7 +164,7 @@ endfunction
 " Settings {{{
 
 function! VimrcLoadSettings()
-  set guicursor=
+  set guicursor=i:ver25-iCursor
   set backspace=indent,eol,start                       " backspace over everything in insert mode
   set nobackup                                         " no need for backup files(use undo files instead)
   set undofile                                         " create '.<FILENAME>.un~' for persiting undo history

@@ -13,6 +13,7 @@ function! VimrcLoadPlugins()
   " }}}
   call plug#begin()
   " Misc {{{
+  Plug 'jparise/vim-graphql'
   Plug 'tpope/vim-unimpaired'
   Plug 'tmux-plugins/vim-tmux'
   Plug 'tpope/vim-repeat'
@@ -31,7 +32,6 @@ function! VimrcLoadPlugins()
   Plug 'nicklasos/vim-jsx-riot'
   Plug 'godlygeek/tabular'
   Plug 'editorconfig/editorconfig-vim'
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
   Plug 'mattn/emmet-vim'
@@ -50,6 +50,9 @@ function! VimrcLoadPlugins()
   Plug 'elubow/cql-vim'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   " }}}
+  let g:prettier#autoformat_config_present = 0
+  let g:prettier#quickfix_auto_focus = 0
+  let g:prettier#quickfix_enabled = 0
   let g:grammarous#default_comments_only_filetypes = { '*' : 1, 'help' : 0, 'markdown' : 0 }
   autocmd OptionSet guicursor noautocmd set guicursor=
   " FZF {{{
@@ -79,10 +82,6 @@ function! VimrcLoadPlugins()
   Plug 'mbbill/undotree'
   nnoremap <leader>u :UndotreeToggle<cr>
   " }}}
-  " deoplete {{{
-    let g:deoplete#enable_at_startup = 0
-    let g:deoplete#disable_auto_complete = 0
-  " }}}
   " Fugitive {{{
   nnoremap <leader>gs :Gstatus<cr>
   nnoremap <leader>gd :Gdiff<cr>
@@ -104,7 +103,7 @@ endfunction
 function! VimrcLoadMappings()
   " Misc {{{
   " enable AutoSave on Vim startup
-  let g:auto_save = 1
+  let g:auto_save = 0
   let g:mapleader = ","
   " execute the current line or selection
   nnoremap <silent> <leader>t "ryy:@r<cr>

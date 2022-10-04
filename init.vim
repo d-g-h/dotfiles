@@ -13,7 +13,6 @@ function! VimrcLoadPlugins()
   " }}}
   call plug#begin()
   " Misc {{{
-  Plug 'jparise/vim-graphql'
   Plug 'tpope/vim-unimpaired'
   Plug 'tmux-plugins/vim-tmux'
   Plug 'tpope/vim-repeat'
@@ -48,13 +47,31 @@ function! VimrcLoadPlugins()
   Plug 'airblade/vim-gitgutter'
   Plug 'posva/vim-vue'
   Plug 'elubow/cql-vim'
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'neoclide/coc.nvim'
   " }}}
-  let g:prettier#autoformat_config_present = 0
-  let g:prettier#quickfix_auto_focus = 0
-  let g:prettier#quickfix_enabled = 0
-  let g:grammarous#default_comments_only_filetypes = { '*' : 1, 'help' : 0, 'markdown' : 0 }
-  autocmd OptionSet guicursor noautocmd set guicursor=
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: There's always complete item selected by default, you may want to enable
+" no select by `"suggest.noselect": true` in your configuration file.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice.
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+let g:grammarous#default_comments_only_filetypes = { '*' : 1, 'help' : 0, 'markdown' : 0 }
+autocmd OptionSet guicursor noautocmd set guicursor=
   " FZF {{{
   " let fzf_command = '((git ls-files && git ls-files --exclude-standard --cached --others 2> /dev/null)'  " git
   " let fzf_command .= ' || (hg manifest --all 2> /dev/null)'  " mercurial
@@ -103,7 +120,7 @@ endfunction
 function! VimrcLoadMappings()
   " Misc {{{
   " enable AutoSave on Vim startup
-  let g:auto_save = 0
+  let g:auto_save = 1
   let g:mapleader = ","
   " execute the current line or selection
   nnoremap <silent> <leader>t "ryy:@r<cr>
@@ -163,6 +180,7 @@ endfunction
 " Settings {{{
 
 function! VimrcLoadSettings()
+  set rtp+=/usr/local/opt/fzf
   set guicursor=i:ver25-iCursor
   set backspace=indent,eol,start                       " backspace over everything in insert mode
   set nobackup                                         " no need for backup files(use undo files instead)
@@ -308,7 +326,7 @@ function! VimrcLoadFontsColors()
   let g:solarized_contrast="normal"
   let g:solarized_visibility="normal"
   color solarized             " Load a colorsch
-  if $TERM =~ 'screen-256color' || $TERM =~ 'rxvt-unicode-256color' || $TERM =~ 'xterm-256color'
+  if $TERM =~ 'screen-256color' || $TERM =~ 'rxvt-unicode-256color'
     " for tmux, this will only work if the client terminal supports italic
     " escape sequences
     highlight Comment cterm=italic

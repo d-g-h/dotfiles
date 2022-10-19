@@ -85,7 +85,8 @@ autocmd OptionSet guicursor noautocmd set guicursor=
   " Ale {{{
   Plug 'dense-analysis/ale'
   " Enable completion where available.
-  let g:ale_completion_enabled = 1
+  let g:ale_completion_enabled = 0
+  let g:ale_disable_lsp = 1
   " }}}
   " UltiSnips {{{
   if g:has_python

@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # daily
-brew cask install onepassword
-brew cask install slack
+brew install --cask slack
 
 # browsers
-brew cask install google-chrome-canary
-brew cask install google-chrome
-brew cask install firefox
+brew install --cask google-chrome-canary
+brew install --cask google-chrome
+brew install --cask firefox
+brew install --cask visual-studio-code

@@ -22,3 +22,5 @@ email = dave.com@com
 	old = red bold
 	new = green bold
 	whitespace = red reverse
+[interactive]
+	diffFilter = diff-so-fancy --patch

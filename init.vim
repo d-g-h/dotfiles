@@ -1,13 +1,12 @@
 " Plugins {{{
 function! VimrcLoadPlugins()
   let g:python_host_prog='/usr/local/bin/python2'
-  let g:python3_host_prog='/usr/local/bin/python3'
   " Install vim-plug if not available {{{
   if !isdirectory(g:vim_plug_dir)
     call mkdir(g:vim_plug_dir, 'p')
   endif
   if !isdirectory(g:vim_plug_dir.'/autoload')
-    execute '!git clone git://github.com/junegunn/vim-plug '
+    execute '!git clone git://github.com/junegunn/vim-plug.git'
           \ shellescape(g:vim_plug_dir.'/autoload', 1)
   endif
   " }}}
@@ -20,7 +19,7 @@ function! VimrcLoadPlugins()
   Plug 'justinmk/vim-dirvish'
   Plug 'scrooloose/nerdcommenter'
   Plug 'tpope/vim-eunuch'
-  Plug 'bling/vim-airline'
+  Plug 'vim-airline/vim-airline'
   Plug 'Shougo/vinarise.vim'
   Plug 'vim-scripts/DrawIt'
   Plug 'altercation/vim-colors-solarized'
@@ -36,7 +35,10 @@ function! VimrcLoadPlugins()
   Plug 'mattn/emmet-vim'
   Plug 'vim-scripts/vim-auto-save'
   Plug 'leafgarland/typescript-vim'
-  Plug 'HerringtonDarkholme/yats.vim'
+  Plug 'peitalin/vim-jsx-typescript'
+  Plug 'HerringtonDarkholme/yats.vim', {'do': 'rm -rf UltiSnips'}
+  Plug 'maxmellon/vim-jsx-pretty'
+  Plug 'mlaursen/vim-react-snippets'
   Plug 'terryma/vim-multiple-cursors'
   Plug 'othree/html5.vim'
   Plug 'hail2u/vim-css3-syntax'
@@ -70,8 +72,10 @@ if has('nvim')
 else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
+
 let g:grammarous#default_comments_only_filetypes = { '*' : 1, 'help' : 0, 'markdown' : 0 }
 autocmd OptionSet guicursor noautocmd set guicursor=
+autocmd BufRead,BufNewFile *.md setlocal spell
   " FZF {{{
   " let fzf_command = '((git ls-files && git ls-files --exclude-standard --cached --others 2> /dev/null)'  " git
   " let fzf_command .= ' || (hg manifest --all 2> /dev/null)'  " mercurial
@@ -197,7 +201,8 @@ function! VimrcLoadSettings()
   set listchars=tab:›\ ,trail:•,extends:#,nbsp:.       " Highlight problematic whitespace
   set linespace=0                                      " No extra spaces between rows
   set fillchars=diff:⣿,vert:│
-  set spell                                            " Spell checking on
+  set spelllang=en
+
   set showcmd                                          " display incomplete commands
   set completeopt=menu,menuone,longest                 " disable preview scratch window
   set complete=.,w,b,u,t                               " h: 'complete'
@@ -328,6 +333,7 @@ function! VimrcLoadFontsColors()
   let g:solarized_visibility="normal"
   color solarized             " Load a colorsch
   if $TERM =~ 'screen-256color' || $TERM =~ 'rxvt-unicode-256color'
+
     " for tmux, this will only work if the client terminal supports italic
     " escape sequences
     highlight Comment cterm=italic

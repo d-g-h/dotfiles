@@ -41,7 +41,6 @@ function! VimrcLoadPlugins()
   Plug 'mlaursen/vim-react-snippets'
   Plug 'terryma/vim-multiple-cursors'
   Plug 'othree/html5.vim'
-  Plug 'hail2u/vim-css3-syntax'
   Plug 'digitaltoad/vim-pug'
   Plug 'rhysd/vim-grammarous'
   Plug 'dNitro/vim-pug-complete', { 'for': ['jade', 'pug'] }

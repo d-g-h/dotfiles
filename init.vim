@@ -49,6 +49,8 @@ function! VimrcLoadPlugins()
   Plug 'posva/vim-vue'
   Plug 'elubow/cql-vim'
   Plug 'neoclide/coc.nvim'
+  Plug 'jparise/vim-graphql'
+
   " }}}
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: There's always complete item selected by default, you may want to enable

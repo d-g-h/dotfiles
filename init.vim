@@ -1,6 +1,6 @@
 " Plugins {{{
 function! VimrcLoadPlugins()
-  let g:python_host_prog='/usr/local/bin/python2'
+  let g:python_host_prog='/usr/local/bin/python3'
   " Install vim-plug if not available {{{
   if !isdirectory(g:vim_plug_dir)
     call mkdir(g:vim_plug_dir, 'p')
@@ -44,13 +44,11 @@ function! VimrcLoadPlugins()
   Plug 'digitaltoad/vim-pug'
   Plug 'rhysd/vim-grammarous'
   Plug 'dNitro/vim-pug-complete', { 'for': ['jade', 'pug'] }
-  Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+  Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
   Plug 'airblade/vim-gitgutter'
   Plug 'posva/vim-vue'
   Plug 'elubow/cql-vim'
-  Plug 'neoclide/coc.nvim'
-  Plug 'jparise/vim-graphql'
-
+  Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'npm ci'}
   " }}}
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: There's always complete item selected by default, you may want to enable
@@ -125,8 +123,8 @@ endfunction
 
 function! VimrcLoadMappings()
   " Misc {{{
-  " enable AutoSave on Vim startup
-  let g:auto_save = 1
+  " disable AutoSave on Vim startup
+  let g:auto_save = 0
   let g:mapleader = ","
   " execute the current line or selection
   nnoremap <silent> <leader>t "ryy:@r<cr>

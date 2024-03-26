@@ -1,0 +1,5 @@
+{
+  "diagnostic.displayByAle": true,
+  "tsserver.useLocalTsdk": true,
+  "snippets.ultisnips.pythonPrompt": false
+}

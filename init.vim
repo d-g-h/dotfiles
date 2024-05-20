@@ -22,7 +22,7 @@ function! VimrcLoadPlugins()
   Plug 'vim-airline/vim-airline'
   Plug 'Shougo/vinarise.vim'
   Plug 'vim-scripts/DrawIt'
-  Plug 'altercation/vim-colors-solarized'
+  Plug 'craftzdog/solarized-osaka.nvim'
   Plug 'danro/rename.vim'
   Plug 'pangloss/vim-javascript'
   Plug 'mxw/vim-jsx'
@@ -326,13 +326,8 @@ function! VimrcLoadFontsColors()
   let g:airline_right_sep=''
   let g:airline_symbols.branch='⎇ '
   let g:airline_symbols.linenr='№'
-  let g:solarized_termcolors=256
-  let g:solarized_termtrans=1
-  let g:solarized_contrast="normal"
-  let g:solarized_visibility="normal"
-  color solarized             " Load a colorsch
+  colorscheme solarized-osaka
   if $TERM =~ 'screen-256color' || $TERM =~ 'rxvt-unicode-256color'
-
     " for tmux, this will only work if the client terminal supports italic
     " escape sequences
     highlight Comment cterm=italic

@@ -12,6 +12,8 @@ function! VimrcLoadPlugins()
   " }}}
   call plug#begin()
   " Misc {{{
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'StanAngeloff/php.vim'
   Plug 'tpope/vim-unimpaired'
   Plug 'tmux-plugins/vim-tmux'
   Plug 'tpope/vim-repeat'
@@ -48,6 +50,7 @@ function! VimrcLoadPlugins()
   Plug 'airblade/vim-gitgutter'
   Plug 'posva/vim-vue'
   Plug 'elubow/cql-vim'
+  Plug 'jparise/vim-graphql'
   Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'npm ci'}
   " }}}
 " Use tab for trigger completion with characters ahead and navigate.
@@ -307,6 +310,11 @@ function! VimrcLoadFiletypeSettings()
           \ | setl shiftwidth=4
           \ | setl textwidth=79
     command! DocTest !python3 -m doctest %
+    " }}}
+    " Markdown {{{
+    au FileType markdown
+          \   setl linebreak
+          \   | setl syntax=on
     " }}}
     " Manifest {{{
     au BufNewFile,BufRead *.manifest set filetype=JSON

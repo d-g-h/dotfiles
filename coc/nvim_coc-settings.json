@@ -1,0 +1,44 @@
+{
+  "diagnostic.displaybyale": true,
+  "tsserver.uselocaltsdk": true,
+
+  "biome.enable": true,
+  "biome.bin": "node_modules/.bin/biome",
+
+  "tailwindcss.enable": true,
+  "tailwindcss.colordecorators": true,
+  "@yaegassy/coc-tailwindcss3.enable": true,
+  "tailwindcss.emmetcompletions": true,
+  "tailwindcss.includelanguages": {
+    "javascript": "javascript",
+    "typescript": "typescript",
+    "javascriptreact": "javascriptreact",
+    "typescriptreact": "typescriptreact",
+    "vue": "vue",
+    "html": "html",
+    "pug": "html"
+  },
+
+  "suggest.noselect": true,
+  "suggest.timeout": 500,
+
+  "languageserver": {
+    "biome": {
+      "command": "biome",
+      "args": ["lsp-proxy"],
+      "filetypes": [
+        "javascript",
+        "typescript",
+        "javascriptreact",
+        "typescriptreact",
+        "json",
+        "jsonc"
+      ],
+      "rootpatterns": [
+        "biome.json",
+        "biome.jsonc",
+        "package.json"
+      ]
+    }
+  }
+}

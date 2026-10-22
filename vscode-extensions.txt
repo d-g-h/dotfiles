@@ -1,0 +1,8 @@
+biomejs.biome
+bradlc.vscode-tailwindcss
+dbaeumer.vscode-eslint
+editorconfig.editorconfig
+ms-azuretools.vscode-containers
+ms-vscode-remote.remote-containers
+sonarsource.sonarlint-vscode
+vscodevim.vim

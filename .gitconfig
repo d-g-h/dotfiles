@@ -1,8 +1,6 @@
 # This is Git's per-user configuration file.
 [user]
-# Please adapt and uncomment the following lines:
-name = dave
-email = dave.com@com
+	useConfigOnly = true
 [pull]
 	rebase = true
 [color]
@@ -24,3 +22,5 @@ email = dave.com@com
 	whitespace = red reverse
 [interactive]
 	diffFilter = diff-so-fancy --patch
+[include]
+	path = ~/.gitconfig.local

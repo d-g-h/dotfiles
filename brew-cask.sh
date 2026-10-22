@@ -1,12 +1,5 @@
 #!/bin/bash
-
-# daily
-brew install --cask slack
-
-# browsers
-brew tap homebrew/cask-versions && brew install --cask google-chrome-canary
-brew install --cask google-chrome-canary
-brew install --cask google-chrome
-brew install --cask firefox
-brew install --cask visual-studio-code
-brew install --cask orbstack
+set -euo pipefail
+# Compatibility entry point. Installs the complete work package set and apps.
+repo_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
+exec brew bundle install --file="$repo_dir/Brewfile" "$@"

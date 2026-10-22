@@ -1,0 +1,10 @@
+# Installed into the selected nvm Node version, without sudo.
+@google/gemini-cli
+@openai/codex
+@tailwindcss/language-server
+npm-check-updates
+oxfmt
+oxlint
+pnpm
+typescript
+typescript-language-server

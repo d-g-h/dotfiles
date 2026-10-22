@@ -4,36 +4,29 @@ local config = {}
 
 config.color_scheme = 'Solarized (dark) (terminal.sexy)'
 config.font = wezterm.font { family = 'Monaco' }
-config.freetype_load_target = 'Mono'
-config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
-config.colors = {
-  foreground = '#E6E0D5',
-}
 
 local RETINA = {
-  font_size = 20.0,
-  cell_width = 0.775,
-  font = wezterm.font { family = 'Monaco', weight = 'ExtraLight' },
-  freetype_load_flags = nil,
-  freetype_load_target = 'Light',
+  font_size = 14.0,
+  cell_width = 0.8,
+  freetype_load_target = 'Mono',
   font_rules = {
     {
       intensity = 'Bold',
       font = wezterm.font {
         family = 'Monaco',
         weight = 'ExtraLight',
-        style = 'Italic',
       },
     },
   },
 }
 
 local EXTERNAL = {
-  font_size = 13.0,
+  font_size = 11.0,
   cell_width = nil,
   font = nil,
-  freetype_load_flags = 'NO_HINTING|MONOCHROME',
   freetype_load_target = 'Mono',
+  freetype_load_flags = 'NO_HINTING|MONOCHROME',
+  harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
   font_rules = {
     {
       intensity = 'Bold',
